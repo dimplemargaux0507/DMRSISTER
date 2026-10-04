@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: bidbayan
+    runtime: docker
+    plan: 0.5c-512mb
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /healthz
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PAYMONGO_SECRET_KEY
+        sync: false
+      - key: PAYMONGO_WEBHOOK_SECRET
+        generateValue: true
+    disk:
+      name: bidbayan-data
+      mountPath: /app/data
+      sizeGB: 1
+

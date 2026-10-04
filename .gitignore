@@ -1,0 +1,4 @@
+.env
+data/users.json
+data/auctions.json
+data/orders.json
